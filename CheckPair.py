@@ -42,7 +42,7 @@ def get_word_pair_length_camel_case(word_pair):
         words.append(current_word)
     return len(words)
 
-while(counter<10):
+while(counter<12):
     wordCC = random.choice(words)
     wordSC = random.choice(words_S)
     if(counter % 2 == 0):
