@@ -3,6 +3,10 @@ import time
 import pandas as pd
 import openpyxl
 
+print('How many? (number should be even)')
+num = int(input())
+if(num % 2 != 0):
+    num+=1
 
 print('Starting in')
 print('....3')
@@ -42,7 +46,7 @@ def get_word_pair_length_camel_case(word_pair):
         words.append(current_word)
     return len(words)
 
-while(counter<50):
+while(counter<num):
     wordCC = random.choice(words)
     wordSC = random.choice(words_S)
     if(counter % 2 == 0):
