@@ -22,7 +22,7 @@ with open("wordsCamelCase.txt") as file:
     
 counter = 0
 
-data = pd.DataFrame(columns=['Index','Word', 'Seconds'])
+data = pd.DataFrame(columns=['Index','Word', 'Seconds','W/F','length'])
 
 
 def get_word_pair_length(word_pair):
@@ -42,7 +42,7 @@ def get_word_pair_length_camel_case(word_pair):
         words.append(current_word)
     return len(words)
 
-while(counter<16):
+while(counter<50):
     wordCC = random.choice(words)
     wordSC = random.choice(words_S)
     if(counter % 2 == 0):
@@ -59,9 +59,20 @@ while(counter<16):
             print("Correct answer!")
             print("Time taken:", elapsed_time, "seconds")
             print("___________________")
-            data = pd.concat([data, pd.DataFrame({'Index': [1], 'Word': [wordCC],'Seconds': [elapsed_time]})], ignore_index=True)
+            data = pd.concat([data, pd.DataFrame({'Index': [1],
+                                                  'Word': [wordCC],
+                                                  'Seconds': [elapsed_time],
+                                                  'W/F': 'True',
+                                                  'length': get_word_pair_length_camel_case(wordCC)})]
+                             , ignore_index=True)
         else:
             print("Incorrect answer!")
+            data = pd.concat([data, pd.DataFrame({'Index': [1],
+                                                  'Word': [wordCC],
+                                                  'Seconds': [elapsed_time],
+                                                  'W/F': 'False','length': get_word_pair_length_camel_case(wordCC)})],
+                             ignore_index=True)
+
     if(counter % 2 != 0):
         print(" ")
         print("Word :", wordSC)
@@ -76,9 +87,21 @@ while(counter<16):
             print("Correct answer!")
             print("Time taken:", elapsed_time, "seconds")
             print("___________________")
-            data = pd.concat([data, pd.DataFrame({'Index': [2], 'Word': [wordSC],'Seconds': [elapsed_time]})], ignore_index=True)
+            data = pd.concat([data, pd.DataFrame({'Index': [2],
+                                                  'Word': [wordSC],
+                                                  'Seconds': [elapsed_time],
+                                                  'W/F': 'True',
+                                                  'length':get_word_pair_length(wordSC)})]
+                             , ignore_index=True)
         else:
             print("Incorrect answer!")
+            data = pd.concat([data, pd.DataFrame({'Index': [2],
+                                                  'Word': [wordSC],
+                                                  'Seconds': [elapsed_time],
+                                                  'W/F': 'False',
+                                                  'length':get_word_pair_length(wordSC)})]
+                             , ignore_index=True)
+        
     counter+=1
 filename = 'word_list.xlsx'
 data.to_excel(filename, index=False)
