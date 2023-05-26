@@ -24,7 +24,7 @@ To run the program, follow these steps:
 1. Clone the repository: `git clone https://github.com/N777W/EMSE-Snake_Case-CamelCase-Exp`
 2. Navigate to the project directory: `cd EMSE-Snake_Case-CamelCase-Exp`
 3. Install the required dependencies: `pip install -r requirements.txt`
-4. Run the program: `python CheckPair.py`
+4. Run the program: `python check_pair.py`
 
 The program will generate a random string, count the word pairs, and save the results in an Excel file named "words_list.xlsx".
 
@@ -34,7 +34,7 @@ Contributions are welcome! If you encounter any issues or have suggestions for i
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+
 
 ---
 
