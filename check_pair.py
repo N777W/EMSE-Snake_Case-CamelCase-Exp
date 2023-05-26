@@ -31,13 +31,27 @@ data = pd.DataFrame(columns=["Index", "Word", "Seconds", "W/F", "length"])
 
 
 def get_word_pair_length(word_pair):
-    """gets word pair length for snake_case"""
+    """_summary_
+
+    Args:
+        word_pair (String): a random word
+
+    Returns:
+        String: a random snake_case word
+    """
     words = word_pair.split("_")
     return len(words)
 
 
 def get_word_pair_length_camel_case(word_pair):
-    """gets word pair length for CamelCase"""
+    """_summary_
+
+    Args:
+        word_pair (String): takes a random word
+
+    Returns:
+        String: a random CamelCase word
+    """
     words = []
     current_word = ""
     for char in word_pair:
