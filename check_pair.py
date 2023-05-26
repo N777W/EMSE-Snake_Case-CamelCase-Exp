@@ -18,10 +18,10 @@ time.sleep(1)
 print("starting now!")
 print(" ")
 
-with open("wordsSnake_Case.txt") as file:
+with open("wordsSnake_Case.txt", encoding="utf-8") as file:
     words_S = file.readlines()
 
-with open("wordsCamelCase.txt") as file:
+with open("wordsCamelCase.txt", encoding="utf-8") as file:
     words = file.readlines()
 
 counter = 0
@@ -30,11 +30,13 @@ data = pd.DataFrame(columns=["Index", "Word", "Seconds", "W/F", "length"])
 
 
 def get_word_pair_length(word_pair):
+    '''gets word pair length for snake_case'''
     words = word_pair.split("_")
     return len(words)
 
 
 def get_word_pair_length_camel_case(word_pair):
+    '''gets word pair length for CamelCase'''
     words = []
     current_word = ""
     for char in word_pair:
