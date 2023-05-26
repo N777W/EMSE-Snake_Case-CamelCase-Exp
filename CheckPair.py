@@ -20,14 +20,13 @@ print(' ')
 
 with open("wordsSnake_Case.txt") as file:
     words_S = file.readlines()
-    
+
 with open("wordsCamelCase.txt") as file:
-    words = file.readlines()    
-    
+    words = file.readlines()
+
 counter = 0
 
 data = pd.DataFrame(columns=['Index','Word', 'Seconds','W/F','length'])
-
 
 def get_word_pair_length(word_pair):
     words = word_pair.split("_")
@@ -105,7 +104,6 @@ while(counter<num):
                                                   'W/F': 'False',
                                                   'length':get_word_pair_length(wordSC)})]
                              , ignore_index=True)
-        
     counter+=1
 filename = 'word_list.xlsx'
 data.to_excel(filename, index=False)
