@@ -1,12 +1,13 @@
+"""Getting test data comparing snake_case and CamelCase"""
 import random
 import time
 import pandas as pd
 
 
 print("How many? (number should be even)")
-num = int(input())
-if num % 2 != 0:
-    num += 1
+num_of_test = int(input())
+if num_of_test % 2 != 0:
+    num_of_test += 1
 
 print("Starting in")
 print("....3")
@@ -22,21 +23,21 @@ with open("wordsSnake_Case.txt", encoding="utf-8") as file:
     words_S = file.readlines()
 
 with open("wordsCamelCase.txt", encoding="utf-8") as file:
-    words = file.readlines()
+    words_C = file.readlines()
 
-counter = 0
+COUNTER = 0
 
 data = pd.DataFrame(columns=["Index", "Word", "Seconds", "W/F", "length"])
 
 
 def get_word_pair_length(word_pair):
-    '''gets word pair length for snake_case'''
+    """gets word pair length for snake_case"""
     words = word_pair.split("_")
     return len(words)
 
 
 def get_word_pair_length_camel_case(word_pair):
-    '''gets word pair length for CamelCase'''
+    """gets word pair length for CamelCase"""
     words = []
     current_word = ""
     for char in word_pair:
@@ -50,10 +51,10 @@ def get_word_pair_length_camel_case(word_pair):
     return len(words)
 
 
-while counter < num:
-    wordCC = random.choice(words)
+while COUNTER < num_of_test:
+    wordCC = random.choice(words_C)
     wordSC = random.choice(words_S)
-    if counter % 2 == 0:
+    if COUNTER % 2 == 0:
         print(" ")
         print("Word :", wordCC)
         print("Enter the number of word pairs:")
@@ -100,7 +101,7 @@ while counter < num:
                 ignore_index=True,
             )
 
-    if counter % 2 != 0:
+    if COUNTER % 2 != 0:
         print(" ")
         print("Word :", wordSC)
         print("Enter the number of word pairs:")
@@ -146,7 +147,7 @@ while counter < num:
                 ],
                 ignore_index=True,
             )
-    counter += 1
-filename = "word_list.xlsx"
-data.to_excel(filename, index=False)
-print(f"Data saved to {filename}")
+    COUNTER += 1
+FILENAME = "word_list.xlsx"
+data.to_excel(FILENAME, index=False)
+print(f"Data saved to {FILENAME}")
