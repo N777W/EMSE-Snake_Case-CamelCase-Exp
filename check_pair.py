@@ -40,7 +40,7 @@ def get_word_pair_length(word_pair):
         String: a random snake_case word
     """
     words = word_pair.split("_")
-    return len(words)
+    return str(len(words))
 
 
 def get_word_pair_length_camel_case(word_pair):
@@ -62,7 +62,7 @@ def get_word_pair_length_camel_case(word_pair):
             current_word += char
     if current_word:
         words.append(current_word)
-    return len(words)
+    return str(len(words))
 
 
 while COUNTER < num_of_test:
@@ -77,7 +77,7 @@ while COUNTER < num_of_test:
         end_time = time.time()
         elapsed_time = end_time - start_time
         elapsed_time = round(elapsed_time, 2)
-        if int(user_input) == get_word_pair_length_camel_case(wordCC):
+        if user_input == get_word_pair_length_camel_case(wordCC):
             print("")
             print("Correct answer!")
             print("Time taken:", elapsed_time, "seconds")
@@ -124,7 +124,7 @@ while COUNTER < num_of_test:
         end_time = time.time()
         elapsed_time = end_time - start_time
         elapsed_time = round(elapsed_time, 2)
-        if int(user_input) == get_word_pair_length(wordSC):
+        if user_input == get_word_pair_length(wordSC):
             print(" ")
             print("Correct answer!")
             print("Time taken:", elapsed_time, "seconds")
